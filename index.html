@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Ciel</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="menu">
+        <h1 style="color: var(--primary); margin-bottom: 5px;">Ciel Mora🫥</h1>
+        <p style="color: #aaa; margin-top: 0; font-size: 0.9rem;">Selecciona qué estudiar</p>
+        <button class="menu-btn" onclick="openModeSelector('vowels')">Vocales</button>
+        <button class="menu-btn" onclick="openModeSelector('consonants')">Consonantes</button>
+        <button class="menu-btn" onclick="openModeSelector('alphabet')">Abecedario</button>
+        <button class="menu-btn" onclick="openModeSelector('numbers')">Números</button>
+        <button class="menu-btn" onclick="showTranslator()" style="border-color: #fff; color: #fff;">Traductor</button>
+        <button class="menu-btn" onclick="openGuide()" style="border-color: var(--secondary); color: var(--secondary);">Guía</button>
+    </div>
+
+    <div id="mode-selector" class="game-container hidden">
+        <h2 style="color: var(--secondary);">¿Cómo quieres practicar?</h2>
+        <button class="menu-btn" onclick="startGame('classic')">Clásico (Ves Letra ➔ Escribes Morse)</button>
+        <button class="menu-btn" onclick="startGame('visual')">Visual (Ves Morse ➔ Escribes Letra)</button>
+        <button class="menu-btn" onclick="startGame('audio')">Auditivo (Escuchas Morse ➔ Escribes Letra)</button>
+        <button onclick="showMenu()" style="background: transparent; color: var(--text); border: 1px solid #555; margin-top: 20px;">Volver</button>
+    </div>
+
+    <div id="game" class="game-container hidden">
+        <h2 id="task-title" style="color: var(--primary); margin: 0;">Nivel</h2>
+        <p id="mode-subtitle" style="color: #888; margin: 5px 0 15px 0; font-size: 0.9rem;"></p>
+        
+        <div id="feedback"></div>
+        <div class="letter-display" id="target-letter">?</div>
+        
+        <button id="btn-replay" class="hidden" onclick="playCurrentSequence()" style="background: var(--surface); color: var(--primary); border: 1px solid var(--primary); margin-bottom: 15px;">🔊 Volver a escuchar</button>
+
+        <div id="classic-controls">
+            <div id="input-preview"></div>
+            <div style="display:flex; margin-top:15px;">
+                <button class="dot-btn" onmousedown="handleSound(0.1)" ontouchstart="handleSound(0.1)" onclick="addInput('.')">●</button>
+                <button class="dash-btn" onmousedown="handleSound(0.3)" ontouchstart="handleSound(0.3)" onclick="addInput('-')">━</button>
+            </div>
+        </div>
+
+        <div id="text-controls" class="hidden">
+            <input type="text" id="text-answer" class="text-answer-input" maxlength="1" placeholder="?">
+        </div>
+
+        <button onclick="checkAnswer()" style="background: var(--success); color: #000; margin-top: 20px;">VERIFICAR</button>
+        <button onclick="showMenu()" style="background: transparent; color: var(--error); border: 1px solid var(--error);">SALIR</button>
+    </div>
+
+    <div id="results" class="game-container hidden">
+        <h2 style="color: var(--success); font-size: 2rem;">¡Completado!</h2>
+        <div class="results-box" id="results-content"></div>
+        <button onclick="showMenu()" style="background: var(--primary); color: #000;">VOLVER AL MENÚ</button>
+    </div>
+
+    <div id="translator" class="translator-container hidden">
+        <h2 style="color: var(--primary)">Traductor Morse</h2>
+        <div class="translator-box">
+            <label>Texto Normal:</label>
+            <textarea id="textInput" placeholder="Escribe algo..." oninput="translateToMorse()"></textarea>
+        </div>
+        <div class="translator-box">
+            <label>Código Morse (usa espacio entre letras):</label>
+            <textarea id="morseInput" placeholder="... --- ..." oninput="translateToText()"></textarea>
+        </div>
+        <button onclick="playFullMorse()" style="background: var(--secondary); color: #000;">Escuchar Mensaje 🔊</button>
+        <button class="clear-btn" onclick="clearTranslator()">Limpiar</button>
+        <button onclick="showMenu()" style="background: transparent; color: var(--text); border: 1px solid #555; margin-top: 15px;">VOLVER</button>
+    </div>
+
+    <div id="guide" class="game-container hidden">
+        <h2 style="color: var(--secondary)">Manual</h2>
+        <div class="tab-container">
+            <button id="btnTabLetras" class="tab-btn tab-active" onclick="switchGuide('letters')">Letras</button>
+            <button id="btnTabNumeros" class="tab-btn" onclick="switchGuide('numbers')">Números</button>
+        </div>
+        <div class="guide-grid" id="guide-list"></div>
+        <button onclick="showMenu()" style="background: var(--primary); color: black; margin-top: 15px;">VOLVER</button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
