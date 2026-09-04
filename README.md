@@ -2,8 +2,6 @@
 
 <img width="745" height="647" alt="image" src="https://github.com/user-attachments/assets/073b4980-1a01-41a9-ac50-17dc8868eee5" />
 
-*(Espacio reservado: Reemplaza la ruta con la captura de pantalla de la aplicación)*
-
 ## Análisis Técnico del Proyecto
 
 **Morse Ciel** es una *Single Page Application (SPA)* enfocada en el aprendizaje algorítmico y sensorial del código Morse. Desarrollada puramente en Vanilla JS, no requiere dependencias externas e implementa síntesis de audio nativa.
