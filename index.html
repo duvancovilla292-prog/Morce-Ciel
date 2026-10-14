@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0A0E17">
+    <meta name="theme-color" content="#0d0914">
     <title>Morse Ciel</title>
+
+    <!-- Favicon: reina de ajedrez neón (archivo favicon.svg junto a index.html) -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -26,7 +30,7 @@
         <button class="menu-btn" onclick="openModeSelector('alphabet')">Abecedario</button>
         <button class="menu-btn" onclick="openModeSelector('numbers')">Números</button>
         <button class="menu-btn" onclick="showTranslator()">Traductor</button>
-        <button class="menu-btn btn-gold" onclick="openGuide()">Guía</button>
+        <button class="menu-btn btn-accent" onclick="openGuide()">Guía</button>
     </div>
 
     <div id="mode-selector" class="game-container hidden">
@@ -44,7 +48,7 @@
         <div id="feedback"></div>
         <div class="letter-display" id="target-letter">?</div>
 
-        <button id="btn-replay" class="hidden menu-btn" onclick="playCurrentSequence()">
+        <button id="btn-replay" class="hidden btn-accent" onclick="playCurrentSequence()">
             <span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Volver a escuchar
         </button>
 
@@ -65,7 +69,7 @@
     </div>
 
     <div id="results" class="game-container hidden">
-        <h2 style="color: var(--gold); font-size: 1.3rem;">¡Completado!</h2>
+        <h2 style="color: var(--secondary); font-size: 1.3rem;">¡Completado!</h2>
         <div class="results-box" id="results-content"></div>
         <button class="btn-success" onclick="showMenu()">VOLVER AL MENÚ</button>
     </div>
@@ -82,7 +86,7 @@
                 <textarea id="morseInput" placeholder="... --- ..." oninput="translateToText()"></textarea>
             </div>
         </div>
-        <button class="btn-gold" onclick="playFullMorse()">
+        <button class="btn-accent" onclick="playFullMorse()">
             <span class="sound-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>Escuchar Mensaje
         </button>
         <button class="clear-btn" onclick="clearTranslator()">Limpiar</button>

@@ -193,14 +193,14 @@ function showResults() {
 
     if (errorCount === 0) {
         content.innerHTML = `
-            <h3 style="color: var(--gold); text-align: center;">¡Perfección Absoluta! 🏆</h3>
+            <h3 style="color: var(--secondary); text-align: center;">¡Perfección Absoluta! 🏆</h3>
             <p style="text-align: center; color: var(--muted);">Dominaste este modo sin ningún fallo.</p>
         `;
     } else {
         const mistakesArray = Array.from(errorItems).join(', ');
         content.innerHTML = `
             <p style="font-size: 1.1rem; margin-bottom: 10px;"><strong>Total de errores:</strong> <span style="color: var(--error); font-size: 1.5rem;">${errorCount}</span></p>
-            <p style="font-size: 1rem;"><strong>Repasar caracteres:</strong> <span style="color: var(--gold); font-weight: bold;">${mistakesArray}</span></p>
+            <p style="font-size: 1rem;"><strong>Repasar caracteres:</strong> <span style="color: var(--secondary); font-weight: bold;">${mistakesArray}</span></p>
         `;
     }
 }
